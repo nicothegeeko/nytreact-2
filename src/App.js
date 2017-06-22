@@ -9,8 +9,7 @@ import ReactDOM from "react-dom";
 // Include the Main Component
 import Main from "./Main.js";
 
-// This code here allows us to render our main component (in this case "Main")
-ReactDOM.render(<Main />, document.getElementById("app"));
+
 
 class App extends Component {
   render() {
@@ -28,5 +27,8 @@ class App extends Component {
     );
   }
 }
+
+// This code here allows us to render our main component (in this case "Main")
+ReactDOM.render(<Main />, document.getElementById("App"));
 
 export default App;
