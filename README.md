@@ -19,5 +19,5 @@ This application uses the New York Times Article API to search articles within t
 
 ### Instructions: 
 
-Type in the item you would like to search in the search bar and then articles should pop up. Select an article you would like to read and or save. t
+Type in the item you would like to search in the search bar and then articles should pop up. Select an article you would like to read and or save.
 
