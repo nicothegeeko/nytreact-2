@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import helpers '../utils/helpers';
 
 const App = () => {
   return (<div className="App">

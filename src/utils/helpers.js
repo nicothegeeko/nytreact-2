@@ -12,7 +12,8 @@ const helpers = {
     console.log(location);
 
     // Figure out the geolocation
-    const queryURL = "http://api.opencagedata.com/geocode/v1/json?query=" + location + "&pretty=1&key=" + geocodeAPI;
+    const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
+  authKey + "4a491741189d4407810728a312eb1c0b";;
 
     return axios.get(queryURL).then((response) => {
 
