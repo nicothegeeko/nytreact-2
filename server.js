@@ -7,6 +7,10 @@ var Article = require('./models/article.js');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
+
+app.listen(port);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -78,6 +82,4 @@ app.delete('/api/saved/', function(req, res){
 });
 
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
 });
