@@ -13,7 +13,7 @@ const helpers = {
 
     // Figure out the geolocation
     const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
-  authKey + "4a491741189d4407810728a312eb1c0b";;
+  authKey + "4a491741189d4407810728a312eb1c0b";
 
     return axios.get(queryURL).then((response) => {
 
