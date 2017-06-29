@@ -5,76 +5,65 @@ import Form from "./children/Form";
 import Results from "./children/Results";
 
 // Helper Function
-import helpers from "./utils/helpers";
+import helpers from "./helpers.js";
 
-class Main extends React.Component {
+const Main = () => {
+  return (<div className="Main">
+
 
   constructor(props) {
-
     super(props);
 
     this.state = {
-      searchTerm: "",
-      results: ""
-    };
-
-    this.setTerm = this.setTerm.bind(this);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-    if (prevState.searchTerm !== this.state.searchTerm) {
-      console.log("UPDATED");
-
-      helpers.runQuery(this.state.searchTerm).then((data) => {
-        if (data !== this.state.results) {
-          console.log(data);
-
-          this.setState({ results: data });
-        }
-      });
+      queryTerm: "",
+      startYear: "",
+      endYear: "",
+      results: {}
     }
-  }
+  },
 
-  setTerm(term) {
+  componentDidUpdate: function(prevProps, prevState)  {
+
+
+    if (this.state.queryTerm != "" && (prevState.queryTerm != this.state.queryTerm || prevState.startYear != this.state.startYear || prevState.endYear != this.state.endYear))
+    {
+      helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear)
+
+      .then(function(data)  {
+        if (data != this.state.results)
+        {
+          this.setState({
+            results: data
+          })
+        }
+
+      }.bind(this))
+    }
+  },
+
+  setQuery: function(newQuery, newStart, newEnd){
+
     this.setState({
-      searchTerm: term
-    });
-  }
+      queryTerm: newQuery,
+      startYear: newStart,
+      endYear: newEnd
+    })
+  },
 
-  render() {
+  render: function(){
 
-    return (
+    return(
 
-      <div className="container">
-        <div className="row">
-          <div className="jumbotron">
-            <h2 className="text-center">Address Finder!</h2>
-            <p className="text-center">
-              <em>Enter a landmark to search for its exact address (ex: "Eiffel Tower").</em>
-            </p>
-          </div>
+      <div className="main-container">
 
-          <div className="col-md-6">
+        <Query updateSearch={this.setQuery} />
 
-            <Form setTerm={this.setTerm} />
-
-          </div>
-
-          <div className="col-md-6">
-
-            <Results address={this.state.results} />
-
-          </div>
-
-        </div>
+        <Results results={this.state.results}/>
 
       </div>
-    );
+
+    )
   }
-}
+});
 
-// Export the componen back for use in other files
-export default Main;
-
-export default class Main extends React.Component;
+module.exports = Main;

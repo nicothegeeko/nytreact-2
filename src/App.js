@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import helpers from './helpers.js';
+import Main from "./Main.js";
 
 const App = () => {
   return (<div className="App">
