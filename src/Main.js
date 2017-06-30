@@ -7,6 +7,11 @@ import Results from "./children/Results";
 // Helper Function
 import helpers from "./helpers.js";
 
+import Query from "./Query.js"
+
+import Results from "./Results.js"
+
+
 
 class Main extends React.Component {
   constructor(props) {
@@ -23,11 +28,11 @@ class Main extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-}
+};
 
 
-
-  componentDidUpdate: function(prevProps, prevState)  {
+const componentUpdate = (prevProps, prevState) => {
+  // componentUpdate: function(prevProps, prevState)  {
 
 // if statement to help organize the data that comes back for the frontend 
     if (this.state.queryTerm != "" && (prevState.queryTerm != this.state.queryTerm || prevState.startYear != this.state.startYear || prevState.endYear != this.state.endYear))
@@ -44,19 +49,20 @@ class Main extends React.Component {
 
       }.bind(this))
     }
-  },
+  };
 
-
-  setQuery: function(newQuery, newStart, newEnd){
+const setQuery = (newQuery, newStart, newEnd) => {
+  // setQuery: function(newQuery, newStart, newEnd){
 // setting for user search
     this.setState({
       queryTerm: newQuery,
       startYear: newStart,
       endYear: newEnd
     })
-  },
+  }
 
-  render: function(){
+const render = () => {
+  // render: function(){
 
     return(
 // where requested information is supposed to be displayed in the main-container 
@@ -70,6 +76,7 @@ class Main extends React.Component {
 
     )
   }
-});
+
+
 
 module.exports = Main;
