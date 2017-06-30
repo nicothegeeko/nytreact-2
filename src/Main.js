@@ -1,13 +1,12 @@
 import React from "react";
 
-// Import sub-components
-import Form from "./children/Form";
-
 // Helper Function
 import helpers from "./helpers.js";
 
+//function for Searches
 import Query from "./Query.js"
 
+// function for results
 import Results from "./Results.js"
 
 
