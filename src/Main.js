@@ -7,10 +7,8 @@ import Results from "./children/Results";
 // Helper Function
 import helpers from "./helpers.js";
 
-// constructor to help parse data from API
-const Main = () => {
-  return (<div className="Main">
 
+class Main extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,8 +17,15 @@ const Main = () => {
       startYear: "",
       endYear: "",
       results: {}
-    }
-  },
+
+  };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+}
+
+
 
   componentDidUpdate: function(prevProps, prevState)  {
 
@@ -66,6 +71,5 @@ const Main = () => {
     )
   }
 });
-
 
 module.exports = Main;
