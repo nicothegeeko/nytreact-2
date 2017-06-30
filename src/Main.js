@@ -31,7 +31,6 @@ class Main extends React.Component {
 
 
 const componentUpdate = (prevProps, prevState) => {
-  // componentUpdate: function(prevProps, prevState)  {
 
 // if statement to help organize the data that comes back for the frontend 
     if (this.state.queryTerm != "" && (prevState.queryTerm != this.state.queryTerm || prevState.startYear != this.state.startYear || prevState.endYear != this.state.endYear))
@@ -51,7 +50,6 @@ const componentUpdate = (prevProps, prevState) => {
   };
 
 const setQuery = (newQuery, newStart, newEnd) => {
-  // setQuery: function(newQuery, newStart, newEnd){
 // setting for user search
     this.setState({
       queryTerm: newQuery,
@@ -61,7 +59,6 @@ const setQuery = (newQuery, newStart, newEnd) => {
   }
 
 const render = () => {
-  // render: function(){
 
     return(
 // where requested information is supposed to be displayed in the main-container 
