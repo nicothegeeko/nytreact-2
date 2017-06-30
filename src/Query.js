@@ -7,7 +7,7 @@ const getInitialState = () => {
     return {
       search: "",
       start: "",
-      end: "",
+      end: ""
     }
   }
 
