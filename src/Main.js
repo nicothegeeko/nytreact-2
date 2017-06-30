@@ -2,7 +2,6 @@ import React from "react";
 
 // Import sub-components
 import Form from "./children/Form";
-import Results from "./children/Results";
 
 // Helper Function
 import helpers from "./helpers.js";
@@ -79,4 +78,4 @@ const render = () => {
 
 
 
-module.exports = Main;
+export default Main;
