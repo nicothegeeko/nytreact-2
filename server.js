@@ -18,13 +18,15 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
+
+// mongoose for heroku deployment
 var link = 'mongodb://heroku_jxbphvb9:kt4e12n5gb18e4c56dt47lveic@ds135252.mlab.com:35252/heroku_jxbphvb9';
-//Local link
-// var link = 'mongodb://localhost/nytreact';
+
 
 mongoose.connect(link);
 var db = mongoose.connection;
 
+// section for adding information to the database 
 db.on('error', function (err) {
   console.log('Mongoose Error: ', err);
 });
@@ -32,11 +34,11 @@ db.on('error', function (err) {
 db.once('open', function () {
   console.log('Mongoose connection successful.');
 });
-
+// getting articles 
 app.get('/', function(req, res){
   res.sendFile('./public/index.html');
 })
-
+// saving articles
 app.get('/api/saved', function(req, res) {
 
   Article.find({})
@@ -50,7 +52,7 @@ app.get('/api/saved', function(req, res) {
       }
     })
 });
-
+// posting information 
 app.post('/api/saved', function(req, res){
   var newArticle = new Article(req.body);
 
@@ -66,7 +68,7 @@ app.post('/api/saved', function(req, res){
     }
   });
 });
-
+// deleting articles
 app.delete('/api/saved/', function(req, res){
 
   var url = req.param('url');
